@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF‐8">
+    <meta name="viewport" content="width=device‐width, initial‐scale=1.0">
+    <meta http‐equiv="X‐UA‐Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red{background-color: red}
+    </style>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="num">
+    <button  v-on:click="num++">登录</button>
+    <button  v-on:click="loginout()">登出</button>
+    <h1> {{ name }} ,非常美,你已登录{{ num }}次，登录时间为：{{nowdate()}}</h1>
+    <div v-text="name"></div>
+    <div v-html="namehtml"></div>
+    <div><a v-bind:href="url">点击</a></div>
+</div>
+<!--<script src="./node_modules/vue/dist/vue.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>//1、vue声明式渲染
+let vm = new Vue({
+    el: "#app",//绑定元素
+    data: { //封装数据
+        name: "辛云清",
+        namehtml: "<a href='#'>hello</a>",
+        num: 1,
+        url:"https://www.baidu.com/"
+    },
+    methods: {
+        nowdate() {
+            return new Date().toLocaleDateString();
+        },
+        loginout(){
+            this.num--;
+        }
+    }
+});
+console.log(Vue.version);
+</script>
+</body>
+</html>
