@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v>
 <head>
     <meta charset="UTF‐8">
     <meta name="viewport" content="width=device‐width, initial‐scale=1.0">
@@ -18,6 +18,7 @@
     <div v-text="name"></div>
     <div v-html="namehtml"></div>
     <div><a v-bind:href="url">点击</a></div>
+    <div v-bind:title="title" :class="{red:isread}">鼠标悬停查看消息！</div>
 </div>
 <!--<script src="./node_modules/vue/dist/vue.js"></script>-->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -25,6 +26,8 @@
 let vm = new Vue({
     el: "#app",//绑定元素
     data: { //封装数据
+        isread:true,
+        title: "您好，我是杨斌老师，欢迎来到图灵学院！希望你可以在图灵学院学到更多的东西！",
         name: "辛云清",
         namehtml: "<a href='#'>hello</a>",
         num: 1,
